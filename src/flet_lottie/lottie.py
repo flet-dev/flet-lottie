@@ -16,6 +16,8 @@ from flet.core.types import (
     ScaleValue,
 )
 
+__all__ = ["Lottie"]
+
 
 class Lottie(ConstrainedControl):
     """
@@ -36,7 +38,7 @@ class Lottie(ConstrainedControl):
         background_loading: Optional[bool] = None,
         filter_quality: Optional[FilterQuality] = None,
         fit: Optional[ImageFit] = None,
-        on_error=None,
+        on_error: OptionalControlEventCallable = None,
         #
         # ConstrainedControl
         #
@@ -52,10 +54,9 @@ class Lottie(ConstrainedControl):
         expand_loose: Optional[bool] = None,
         col: Optional[ResponsiveNumber] = None,
         opacity: OptionalNumber = None,
-        rotate: RotateValue = None,
-        scale: ScaleValue = None,
-        offset: OffsetValue = None,
-        aspect_ratio: OptionalNumber = None,
+        rotate: Optional[RotateValue] = None,
+        scale: Optional[ScaleValue] = None,
+        offset: Optional[OffsetValue] = None,
         animate_opacity: Optional[AnimationValue] = None,
         animate_size: Optional[AnimationValue] = None,
         animate_position: Optional[AnimationValue] = None,
@@ -63,7 +64,7 @@ class Lottie(ConstrainedControl):
         animate_scale: Optional[AnimationValue] = None,
         animate_offset: Optional[AnimationValue] = None,
         on_animation_end: OptionalControlEventCallable = None,
-        tooltip: TooltipValue = None,
+        tooltip: Optional[TooltipValue] = None,
         badge: Optional[BadgeValue] = None,
         visible: Optional[bool] = None,
         disabled: Optional[bool] = None,
