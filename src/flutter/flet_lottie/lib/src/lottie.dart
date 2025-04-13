@@ -21,7 +21,7 @@ class _LottieControlState extends State<LottieControl> with FletStoreMixin {
         "Lottie build: ${widget.control.id} (${widget.control.hashCode})");
 
     var src = widget.control.getString("src", "")!;
-    var srcBase64 = widget.control.getString("srcBase64", "")!;
+    var srcBase64 = widget.control.getString("src_base64", "")!;
 
     if (src == "" && srcBase64 == "") {
       return const ErrorControl(
@@ -34,8 +34,7 @@ class _LottieControlState extends State<LottieControl> with FletStoreMixin {
     var animate = widget.control.getBool("animate", true)!;
     var fit = widget.control.getBoxFit("fit");
     var alignment = widget.control.getAlignment("alignment");
-    var filterQuality =
-        widget.control.getFilterQuality("filter_quality", FilterQuality.low)!;
+    var filterQuality = widget.control.getFilterQuality("filter_quality");
     void onWarning(String value) {
       if (widget.control.getBool("on_error", false)!) {
         widget.control.triggerEvent("error", value);
