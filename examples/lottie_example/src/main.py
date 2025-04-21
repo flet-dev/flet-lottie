@@ -1,14 +1,19 @@
+import dataclasses
+import logging
+import os
+
 import flet as ft
 
 import flet_lottie as fl
 
+logging.basicConfig(level=logging.INFO)
+os.environ["FLET_PLATFORM"] = "macos"
+
+
 def main(page: ft.Page):
     page.add(
-        fl.Lottie(
-            src='https://raw.githubusercontent.com/xvrh/lottie-flutter/master/example/assets/Mobilo/A.json',
-            reverse=False,
-            animate=True
-        )
+        ft.Text("Lottie Example"),
     )
 
-ft.app(main)
+
+ft.run(main, port=8550)

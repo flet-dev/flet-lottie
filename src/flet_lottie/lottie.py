@@ -2,6 +2,8 @@ from typing import Optional
 
 import flet as ft
 
+__all__ = ["Lottie"]
+
 
 @ft.control("Lottie")
 class Lottie(ft.ConstrainedControl):
@@ -22,3 +24,7 @@ class Lottie(ft.ConstrainedControl):
     filter_quality: Optional[ft.FilterQuality] = None
     fit: Optional[ft.ImageFit] = None
     on_error: ft.OptionalControlEventCallable = None
+
+    def before_update(self):
+        super().before_update()
+        assert self.src or self.src_base64, "either src or src_base64 must be provided"

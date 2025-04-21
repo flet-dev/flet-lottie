@@ -1,1 +1,1 @@
-from flet_lottie.lottie import Lottie
+from .lottie import Lottie

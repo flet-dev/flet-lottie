@@ -9,9 +9,9 @@ authors = [
 classifiers = [
   "License :: OSI Approved :: Apache Software License",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
-    "flet>=0.70.0",
+    "flet @ file:////Users/ndonkohenri/PycharmProjects/flet-dev/flet/sdk/python/packages/flet",
 ]
 
 [project.urls]

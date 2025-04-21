@@ -3,12 +3,14 @@ name = "lottie_example"
 version = "1.0.0"
 description = ""
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
-  "flet-lottie @ git+https://github.com/flet-dev/flet-lottie.git",
-  "flet>=0.25.2",
+    "flet-lottie @ /Users/ndonkohenri/PycharmProjects/flet-dev/flet-packages/flet-lottie",
+    "flet @ file:////Users/ndonkohenri/PycharmProjects/flet-dev/flet/sdk/python/packages/flet",
 ]
 
+[tool.poetry]
+package-mode = false
 
 [tool.flet]
 # org name in reverse domain name notation, e.g. "com.mycompany".
