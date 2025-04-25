@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Dict, Optional
 
 import flet as ft
 
@@ -20,9 +20,13 @@ class Lottie(ft.ConstrainedControl):
     repeat: bool = True
     reverse: bool = False
     animate: bool = True
+    enable_merge_paths: bool = False
+    enable_layers_opacity: bool = False
     background_loading: Optional[bool] = None
     filter_quality: Optional[ft.FilterQuality] = None
     fit: Optional[ft.ImageFit] = None
+    headers: Optional[Dict[str, str]] = None
+    error_content: ft.OptionalControl = None
     on_error: ft.OptionalControlEventCallable = None
 
     def before_update(self):
