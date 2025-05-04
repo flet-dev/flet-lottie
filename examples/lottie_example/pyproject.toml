@@ -1,9 +1,10 @@
 [project]
 name = "lottie_example"
 version = "1.0.0"
-description = "Lottie example application."
+description = "Flet Lottie Example"
 readme = "README.md"
-requires-python = ">=3.9"
+license = "Apache-2.0"
+requires-python = ">=3.10"
 dependencies = [
     "flet-lottie",
     "flet",
@@ -14,13 +15,13 @@ dependencies = [
 org = "com.mycompany"
 product = "Flet Lottie Example"
 company = "Flet"
-copyright = "Copyright (C) 2024 by Flet"
+copyright = "Copyright (C) 2025 by Flet"
 
 [tool.flet.app]
 path = "src"
 
 [tool.flet.dev_packages]
-flet-lottie = "../.." # relative path
+flet-lottie = "../.."
 flet = "git+https://github.com/flet-dev/flet.git@v1#subdirectory=sdk/python/packages/flet"
 
 [tool.uv]
@@ -28,7 +29,6 @@ dev-dependencies = [
     "flet",
     "flet-cli",
     "flet-desktop",
-    "flet-web",
 ]
 
 [tool.uv.sources]
@@ -36,4 +36,3 @@ flet-lottie = { path = "../../", editable = true }
 flet = { git = "https://github.com/flet-dev/flet", subdirectory = "sdk/python/packages/flet", rev = "v1" }
 flet-cli = { git = "https://github.com/flet-dev/flet", subdirectory = "sdk/python/packages/flet-cli", rev = "v1" }
 flet-desktop = { git = "https://github.com/flet-dev/flet", subdirectory = "sdk/python/packages/flet-desktop", rev = "v1" }
-flet-web = { git = "https://github.com/flet-dev/flet", subdirectory = "sdk/python/packages/flet-web", rev = "v1" }
