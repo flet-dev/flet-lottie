@@ -3,9 +3,7 @@ name = "flet-lottie"
 version = "0.2.0"
 description = "Lottie control for Flet"
 readme = "README.md"
-authors = [
-    { name = "Flet contributors", email = "hello@flet.dev" }
-]
+authors = [{ name = "Flet contributors", email = "hello@flet.dev" }]
 license = "Apache-2.0"
 requires-python = ">=3.10"
 dependencies = [

@@ -56,70 +56,68 @@ class _LottieControlState extends State<LottieControl> with FletStoreMixin {
     Widget errorBuilder(context, error, stackTrace) {
       onError(error.toString());
       return errorContent ??
-          ErrorControl("Error loading lottie", description: error.toString());
+          ErrorControl("Error loading Lottie", description: error.toString());
     }
 
-    return withPageArgs((context, pageArgs) {
-      Widget? lottie;
+    Widget? lottie;
 
-      if (srcBase64 != null) {
-        try {
-          Uint8List bytes = base64Decode(srcBase64);
-          lottie = Lottie.memory(
-            bytes,
+    if (srcBase64 != null) {
+      try {
+        Uint8List bytes = base64Decode(srcBase64);
+        lottie = Lottie.memory(
+          bytes,
+          repeat: repeat,
+          reverse: reverse,
+          animate: animate,
+          alignment: alignment,
+          fit: fit,
+          filterQuality: filterQuality,
+          options: options,
+          backgroundLoading: backgroundLoading,
+          errorBuilder: errorBuilder,
+          onLoaded: onLoad,
+          onWarning: onError,
+        );
+      } catch (ex) {
+        onError(ex.toString());
+        return errorContent ??
+            ErrorControl("Error decoding src_base64",
+                description: ex.toString());
+      }
+    } else {
+      var assetSrc = FletBackend.of(context).getAssetSource(src!);
+      if (assetSrc.isFile) {
+        // Local File
+        lottie = Lottie.asset(assetSrc.path,
+            repeat: repeat,
+            reverse: reverse,
+            animate: animate,
+            alignment: alignment,
+            options: options,
+            fit: fit,
+            filterQuality: filterQuality,
+            backgroundLoading: backgroundLoading,
+            errorBuilder: errorBuilder,
+            onLoaded: onLoad,
+            onWarning: onError);
+      } else {
+        // URL
+        lottie = Lottie.network(assetSrc.path,
             repeat: repeat,
             reverse: reverse,
             animate: animate,
             alignment: alignment,
             fit: fit,
-            filterQuality: filterQuality,
             options: options,
+            filterQuality: filterQuality,
             backgroundLoading: backgroundLoading,
+            headers: widget.control.get("headers")?.cast<String, String>(),
             errorBuilder: errorBuilder,
             onLoaded: onLoad,
-            onWarning: onError,
-          );
-        } catch (ex) {
-          onError(ex.toString());
-          return errorContent ??
-              ErrorControl("Error decoding src_base64",
-                  description: ex.toString());
-        }
-      } else {
-        var assetSrc = getAssetSrc(src!, pageArgs.pageUri!, pageArgs.assetsDir);
-        if (assetSrc.isFile) {
-          // Local File
-          lottie = Lottie.asset(assetSrc.path,
-              repeat: repeat,
-              reverse: reverse,
-              animate: animate,
-              alignment: alignment,
-              options: options,
-              fit: fit,
-              filterQuality: filterQuality,
-              backgroundLoading: backgroundLoading,
-              errorBuilder: errorBuilder,
-              onLoaded: onLoad,
-              onWarning: onError);
-        } else {
-          // URL
-          lottie = Lottie.network(assetSrc.path,
-              repeat: repeat,
-              reverse: reverse,
-              animate: animate,
-              alignment: alignment,
-              fit: fit,
-              options: options,
-              filterQuality: filterQuality,
-              backgroundLoading: backgroundLoading,
-              headers: widget.control.get("headers")?.cast<String, String>(),
-              errorBuilder: errorBuilder,
-              onLoaded: onLoad,
-              onWarning: onError);
-        }
+            onWarning: onError);
       }
+    }
 
-      return ConstrainedControl(control: widget.control, child: lottie);
-    });
+    return ConstrainedControl(control: widget.control, child: lottie);
   }
 }
