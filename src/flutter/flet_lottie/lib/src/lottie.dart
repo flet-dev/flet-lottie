@@ -14,7 +14,7 @@ class LottieControl extends StatefulWidget {
   State<LottieControl> createState() => _LottieControlState();
 }
 
-class _LottieControlState extends State<LottieControl> with FletStoreMixin {
+class _LottieControlState extends State<LottieControl> {
   @override
   Widget build(BuildContext context) {
     debugPrint(
