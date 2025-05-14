@@ -14,7 +14,7 @@ class LottieControl extends StatefulWidget {
   State<LottieControl> createState() => _LottieControlState();
 }
 
-class _LottieControlState extends State<LottieControl> with FletStoreMixin {
+class _LottieControlState extends State<LottieControl> {
   @override
   Widget build(BuildContext context) {
     debugPrint(
@@ -85,7 +85,7 @@ class _LottieControlState extends State<LottieControl> with FletStoreMixin {
                 description: ex.toString());
       }
     } else {
-      var assetSrc = FletBackend.of(context).getAssetSource(src!);
+      var assetSrc = widget.control.backend.getAssetSource(src!);
       if (assetSrc.isFile) {
         // Local File
         lottie = Lottie.asset(assetSrc.path,
