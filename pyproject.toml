@@ -19,16 +19,26 @@ Issues = "https://github.com/flet-dev/flet-lottie/issues"
 [tool.setuptools.package-data]
 "flutter.flet_lottie" = ["**/*"]
 
-[tool.uv]
-dev-dependencies = [
-    "flet",
-    "flet-cli",
-    "flet-desktop",
-    #"mkdocs",
-    #"mkdocs-material",
-    #"mkdocstrings[python]"
+[dependency-groups]
+dev = [
+    # "flet",
+    # "flet-cli",
+    # "flet-desktop",
     "pre-commit>=4.2.0",
 ]
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocstrings[python]",
+    "mike",
+    "markdown>=3.6",
+    "pymdown-extensions",
+    "mkdocs-glightbox",
+    "pygments>=2.16",
+]
+
+[tool.uv]
+default-groups = []
 
 [tool.uv.sources]
 flet = { git = "https://github.com/flet-dev/flet", subdirectory = "sdk/python/packages/flet", rev = "v1" }
