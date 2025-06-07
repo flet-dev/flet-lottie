@@ -86,7 +86,7 @@ class Lottie(ft.ConstrainedControl):
     Headers for network requests.
     """
 
-    error_content: ft.OptionalControl = None
+    error_content: Optional[ft.Control] = None
     """
     A control to display when an error occurs while loading the Lottie animation.
     

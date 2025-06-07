@@ -1,4 +1,4 @@
-# Lottie control for Flet
+# flet-lottie
 
 `Lottie` control for Flet.
 

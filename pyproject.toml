@@ -1,7 +1,7 @@
 [project]
 name = "flet-lottie"
 version = "0.2.0"
-description = "Lottie control for Flet"
+description = "Display Lottie animations in Flet apps."
 readme = "README.md"
 authors = [{ name = "Flet contributors", email = "hello@flet.dev" }]
 license = "Apache-2.0"
