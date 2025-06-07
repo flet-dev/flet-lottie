@@ -9,10 +9,6 @@ __all__ = ["Lottie"]
 class Lottie(ft.ConstrainedControl):
     """
     Displays lottie animations.
-
-    -----
-
-    Online docs: https://flet.dev/docs/controls/lottie
     """
 
     src: Optional[str] = None
