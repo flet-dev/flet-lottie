@@ -21,6 +21,32 @@ This package supports the following platforms:
 | Android  |     ✅     |
 | Web      |     ✅     |
 
+## Usage
+
+### Installation
+
+To install the `flet-lottie` package and add it to your project dependencies:
+
+=== "uv"
+
+```bash
+uv add flet-lottie
+```
+
+=== "pip"
+
+```bash
+pip install flet-lottie
+```
+
+    You will have to manually add this package to your `requirements.txt` or `pyproject.toml`.
+
+=== "poetry"
+
+```bash
+poetry add flet-lottie
+```
+
 ## Example
 
 ```python title="main.py"

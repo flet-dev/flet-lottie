@@ -25,37 +25,27 @@ class Lottie(ft.ConstrainedControl):
     repeat: bool = True
     """
     Whether the animation should repeat in a loop. Has no effect if `animate` is `False`.
-
-    Defaults to `True`.
     """
 
     reverse: bool = False
     """
     Whether the animation should be played in reverse (from start to end and then continuously from end to start). 
     Has no effect if `animate` or `repeat` is `False`.
-    
-    Defaults to `False`.
     """
 
     animate: bool = True
     """
     Whether the animation should be played automatically.
-
-    Defaults to `True`.
     """
 
     enable_merge_paths: bool = False
     """
     Whether to enable merge path support.
-    
-    Defaults to `False`.
     """
 
     enable_layers_opacity: bool = False
     """
     Whether to enable layer-level opacity.
-    
-    Defaults to `False`.
     """
 
     background_loading: Optional[bool] = None
@@ -66,8 +56,6 @@ class Lottie(ft.ConstrainedControl):
     filter_quality: ft.FilterQuality = ft.FilterQuality.LOW
     """
     The quality of the image layer.
-
-    Defaults to `FilterQuality.LOW`.
     """
 
     fit: Optional[ft.ImageFit] = None
@@ -89,7 +77,7 @@ class Lottie(ft.ConstrainedControl):
     For more information on the error, see `on_error`.
     """
 
-    on_error: ft.OptionalControlEventCallable = None
+    on_error: ft.OptionalControlEventHandler["Lottie"] = None
     """
     Fires when an error occurs while loading the Lottie animation.
     
