@@ -9,28 +9,39 @@ __all__ = ["Lottie"]
 class Lottie(ft.ConstrainedControl):
     """
     Displays lottie animations.
+
+    Raises:
+        AssertionError: If neither `src` nor `src_base64` is provided.
     """
 
     src: Optional[str] = None
     """
     The source of the Lottie file. Can be a URL or a local [asset file](/docs/cookbook/assets).
+    
+    Note:
+        Either this or [`src_base64`][..] must be provided. 
+        If both are provided, `src_base64` will be prioritized/used.
     """
 
     src_base64: Optional[str] = None
     """
     The base64 encoded string of the Lottie file. 
-    Either this or `src` must be provided. If both are provided, `src_base64` will be prioritized/used.
+    
+    Note:
+        Either this or [`src`][..] must be provided. 
+        If both are provided, this will be prioritized/used.
     """
 
     repeat: bool = True
     """
-    Whether the animation should repeat in a loop. Has no effect if `animate` is `False`.
+    Whether the animation should repeat in a loop. Has no effect if [`animate`][..] is `False`.
     """
 
     reverse: bool = False
     """
     Whether the animation should be played in reverse (from start to end and then continuously from end to start). 
-    Has no effect if `animate` or `repeat` is `False`.
+    
+    Has no effect if [`animate`][..] or [`repeat`][..] is `False`.
     """
 
     animate: bool = True
@@ -62,7 +73,7 @@ class Lottie(ft.ConstrainedControl):
     """
     Defines how to inscribe the Lottie composition into the space allocated during layout.
 
-    Value is of type [`ImageFit`](/docs/reference/types/imagefit).
+    Value is of type [`ImageFit`](https://flet.dev/docs/reference/types/imagefit).
     """
 
     headers: Optional[Dict[str, str]] = None
@@ -74,7 +85,7 @@ class Lottie(ft.ConstrainedControl):
     """
     A control to display when an error occurs while loading the Lottie animation.
     
-    For more information on the error, see `on_error`.
+    For more information on the error, see [`on_error`][..].
     """
 
     on_error: ft.OptionalControlEventHandler["Lottie"] = None
