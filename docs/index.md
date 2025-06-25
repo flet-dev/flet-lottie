@@ -4,7 +4,7 @@
 [![downloads](https://static.pepy.tech/badge/flet-lottie/month)](https://pepy.tech/project/flet-lottie)
 [![license](https://img.shields.io/github/license/flet-dev/flet-lottie.svg)](https://github.com/flet-dev/flet-lottie/blob/main/LICENSE)
 
-A Flet extension package for displaying Lottie animations.
+A [Flet](https://flet.dev) extension package for displaying Lottie animations.
 
 It is based on the [lottie](https://pub.dev/packages/lottie) Flutter package.
 

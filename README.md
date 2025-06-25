@@ -1,27 +1,50 @@
 # flet-lottie
 
-`Lottie` control for Flet.
+[![pypi](https://img.shields.io/pypi/v/flet-lottie.svg)](https://pypi.python.org/pypi/flet-lottie)
+[![downloads](https://static.pepy.tech/badge/flet-lottie/month)](https://pepy.tech/project/flet-lottie)
+[![license](https://img.shields.io/github/license/flet-dev/flet-lottie.svg)](https://github.com/flet-dev/flet-lottie/blob/main/LICENSE)
 
-## Usage
+A [Flet](https://flet.dev) extension package for displaying Lottie animations.
 
-Add `flet-lottie` as dependency (`pyproject.toml` or `requirements.txt`) to your Flet project.
+It is based on the [lottie](https://pub.dev/packages/lottie) Flutter package.
 
-## Example
+## Documentation
 
-```py
+Detailed documentation to this package can be found [here](https://flet-dev.github.io/flet-lottie/).
 
-import flet as ft
+## Platform Support
 
-import flet_lottie as fl
+This package supports the following platforms:
 
-def main(page: ft.Page):
-    page.add(
-        fl.Lottie(
-            src='https://raw.githubusercontent.com/xvrh/lottie-flutter/master/example/assets/Mobilo/A.json',
-            reverse=False,
-            animate=True
-        )
-    )
+| Platform | Supported |
+|----------|:---------:|
+| Windows  |     ✅     |
+| macOS    |     ✅     |
+| Linux    |     ✅     |
+| iOS      |     ✅     |
+| Android  |     ✅     |
+| Web      |     ✅     |
 
-ft.app(main)
-```
+## Installation
+
+To install the `flet-lottie` package and add it to your project dependencies:
+
+- Using `uv`:
+    ```bash
+    uv add flet-lottie
+    ```
+
+- Using `pip`:
+    ```bash
+    pip install flet-lottie
+    ```
+    After this, you will have to manually add this package to your `requirements.txt` or `pyproject.toml`.
+
+- Using `poetry`:
+    ```bash
+    poetry add flet-lottie
+    ```
+
+## Examples
+
+For examples, see [this](./examples)
