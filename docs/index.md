@@ -8,10 +8,6 @@ A [Flet](https://flet.dev) extension package for displaying Lottie animations.
 
 It is based on the [lottie](https://pub.dev/packages/lottie) Flutter package.
 
-## Documentation
-
-Detailed documentation to this package can be found [here](https://flet-dev.github.io/flet-lottie/).
-
 ## Platform Support
 
 This package supports the following platforms:
@@ -25,26 +21,32 @@ This package supports the following platforms:
 | Android  |     ✅     |
 | Web      |     ✅     |
 
-## Installation
+## Usage
+
+### Installation
 
 To install the `flet-lottie` package and add it to your project dependencies:
 
-- Using `uv`:
+=== "uv"
     ```bash
     uv add flet-lottie
     ```
 
-- Using `pip`:
+=== "pip"
     ```bash
-    pip install flet-lottie
+    pip install flet-lottie  # (1)!
     ```
-    After this, you will have to manually add this package to your `requirements.txt` or `pyproject.toml`.
 
-- Using `poetry`:
+    1. After this, you will have to manually add this package to your `requirements.txt` or `pyproject.toml`.
+
+=== "poetry"
     ```bash
     poetry add flet-lottie
     ```
 
-## Examples
 
-For examples, see [this](./examples)
+## Example
+
+```python title="main.py"
+--8<-- "examples/lottie_example/src/main.py"
+``` 
