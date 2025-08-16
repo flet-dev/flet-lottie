@@ -1,3 +1,3 @@
-from .lottie import Lottie
+from flet_lottie.lottie import Lottie
 
 __all__ = ["Lottie"]
