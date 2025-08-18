@@ -44,9 +44,6 @@ To install the `flet-lottie` package and add it to your project dependencies:
     poetry add flet-lottie
     ```
 
+### Examples
 
-## Example
-
-```python title="main.py"
---8<-- "examples/lottie_example/src/main.py"
-``` 
+See [these](lottie.md#examples).
