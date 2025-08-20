@@ -37,8 +37,7 @@ jobs:
       - name: Generate and Patch versions
         run: |
           source .github/scripts/update_build_version.sh
-          uv run .github/scripts/patch_toml_version.py pyproject.toml $PYPI_VER
-          uv version $PYPI_VER --dry-run
+          uv version $PYPI_VER
           uv run .github/scripts/patch_pubspec_version.py src/flutter/*/pubspec.yaml $PKG_VER
 
       - name: Analyze Flutter package
