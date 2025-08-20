@@ -16,6 +16,7 @@ jobs:
 
     env:
       PYTHON_VERSION: 3.12
+      FLUTTER_VERSION: 3.32.8
       UV_PUBLISH_TOKEN: ${{ secrets.UV_PUBLISH_TOKEN }}
 
     steps:
@@ -25,13 +26,13 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 3.32.8
+          flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
 
-      - name: Install uv
+      - name: Setup uv
         uses: astral-sh/setup-uv@v6
 
-      - name: Setup Python with uv
+      - name: Setup Python
         run: |
           uv python install $PYTHON_VERSION
 
