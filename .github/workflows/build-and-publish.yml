@@ -22,8 +22,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Update build version
-        run: source .github/scripts/update_build_version.sh
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.32.8
+          cache: true
 
       - name: Install uv
         uses: astral-sh/setup-uv@v6
@@ -31,6 +34,9 @@ jobs:
       - name: Setup Python with uv
         run: |
           uv python install $PYTHON_VERSION
+
+      - name: Update build version
+        run: source .github/scripts/update_build_version.sh
 
       - name: Patch versions
         run: |
