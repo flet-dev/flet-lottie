@@ -112,7 +112,8 @@ plugins:
           target_url_path: examples
           include_exts: [ ".png", ".gif", ".svg" ]
   - mkdocstrings:
-      default_handler: python_xref
+      default_handler: python
+      custom_templates: docs/extras/templates
       handlers:
         python_xref:
           options:

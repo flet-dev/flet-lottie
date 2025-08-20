@@ -10,9 +10,6 @@ class Lottie(ft.ConstrainedControl):
     """
     Displays lottie animations.
 
-    Raises:
-        AssertionError: If neither [`src`][(c).] nor
-        [`src_base64`][(c).] is provided.
     """
 
     src: Optional[str] = None
