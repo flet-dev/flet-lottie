@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -e
 
+echo "================ DEBUG: GitHub Actions Context ================"
+echo "GITHUB_REF=$GITHUB_REF"
+echo "GITHUB_REF_TYPE=$GITHUB_REF_TYPE"
+echo "GITHUB_REF_NAME=$GITHUB_REF_NAME"
+echo "GITHUB_EVENT_NAME=$GITHUB_EVENT_NAME"
+echo "GITHUB_RUN_NUMBER=$GITHUB_RUN_NUMBER"
+echo "==============================================================="
+
 # ------------------------------------------------------------------------------
 # This script determines the version numbers used in builds and releases.
 #
@@ -33,26 +41,28 @@ if [[ "$GITHUB_REF" == refs/tags/* ]]; then
     # For tagged releases, BUILD_VER is the same as PKG_VER
     export BUILD_VER="$PKG_VER"
 else
-    # -------------------------------------------------------------
-    # Case 2: This is not a tagged build (e.g. main branch commit)
-    # -------------------------------------------------------------
-    # Get the latest tag, or fall back to "v0.0.0" if none exist
-    cv=$(git describe --abbrev=0 2>/dev/null || echo "v0.0.0")
-    # Remove leading "v" if present
-    cv=${cv#v}
+    echo "Branch/PR build detected, calculating next dev version..."
 
-    # Split into major/minor components
+    # Get the latest tag, or fall back
+    cv=$(git describe --abbrev=0 2>/dev/null || echo "v0.0.0")
+    echo "Latest tag from git describe: $cv"
+
+    cv=${cv#v}
+    echo "After stripping 'v' prefix: $cv"
+
     major=$(echo "$cv" | cut -d. -f1)
     minor=$(echo "$cv" | cut -d. -f2)
 
-    # Increment the minor version (e.g. "1.2" → "1.3")
+    echo "Parsed major=$major, minor=$minor (before increment)"
+
     minor=$((minor + 1))
+    echo "Incremented minor=$minor"
 
-    # Construct the package version: <major>.<minor>.0
     export PKG_VER="${major}.${minor}.0"
-
-    # Append the GitHub Actions run number for uniqueness
     export BUILD_VER="${PKG_VER}+${GITHUB_RUN_NUMBER}"
+
+    echo "Computed PKG_VER=$PKG_VER"
+    echo "Computed BUILD_VER=$BUILD_VER"
 fi
 
 # -------------------------------------------------------------
