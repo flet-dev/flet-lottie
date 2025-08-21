@@ -52,7 +52,7 @@ else
     export PKG_VER="${major}.${minor}.0"
 
     # Append the GitHub Actions run number for uniqueness
-    export BUILD_VER="${PKG_VER}+${GITHUB_RUN_NUMBER}"
+    export BUILD_VER="${PKG_VER}+$((GITHUB_RUN_NUMBER + 500))"
 fi
 
 # -------------------------------------------------------------
@@ -67,8 +67,7 @@ echo "PKG_VER=$PKG_VER"
 echo "BUILD_VER=$BUILD_VER"
 echo "PYPI_VER=$PYPI_VER"
 
-# Export values for subsequent GitHub Actions steps
-# Anything written to $GITHUB_ENV becomes available as an env var
+# Export values as environment variables
 echo "PKG_VER=$PKG_VER" >> $GITHUB_ENV
 echo "BUILD_VER=$BUILD_VER" >> $GITHUB_ENV
 echo "PYPI_VER=$PYPI_VER" >> $GITHUB_ENV
