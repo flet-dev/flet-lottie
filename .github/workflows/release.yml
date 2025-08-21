@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PYTHON_VERSION: 3.12
-      FLUTTER_VERSION: 3.32.8
       UV_PUBLISH_TOKEN: ${{ secrets.UV_PUBLISH_TOKEN }}
 
     steps:
@@ -27,10 +25,6 @@ jobs:
 
       - name: Setup uv
         uses: astral-sh/setup-uv@v6
-
-      - name: Setup Python
-        run: |
-          uv python install $PYTHON_VERSION
 
       - name: Patch versions
         run: |
